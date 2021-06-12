@@ -20,7 +20,12 @@ func main() {
     job := &activejob.Job{
         QueueName: "my_worker_queue",
         JobClass:  "MyHandlerJob",
-        Arguments: []interface{}{},
+        Arguments: []interface{}{
+            map[string]interface{}{
+                "some": "body data",
+                "number": 1
+            }
+        },
     }
 
     awsConfig := &aws.Config{Region: aws.String("us-west-2")}
